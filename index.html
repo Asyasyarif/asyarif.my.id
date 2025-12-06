@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Syarifudin_</title>
+    <meta name="description" content="Portfolio of Ahmad Syarifudin, Software Engineer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --border-color: #000000;
+            --accent-color: #000000;
+            --font-main: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom: 1px solid var(--text-color);
+            background-color: #000;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            min-height: 100vh;
+        }
+
+        /* Header / Nav */
+        header {
+            margin-bottom: 5rem;
+            padding: 2rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+
+        .status-text {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 0.5rem;
+            padding: 0.2rem 0.5rem;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: none;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            opacity: 1;
+            background: none;
+            color: #000;
+            border-bottom: none;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: width 0.2s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-contact {
+            margin-left: 1.5rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #000;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-contact:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Mobile nav */
+        @media (max-width: 767px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-contact {
+                margin-left: 0;
+            }
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 6rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            max-width: 650px;
+        }
+
+        /* Skills List */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .skills-list li {
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 4px 4px 0px 0px var(--text-color);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: auto;
+        }
+
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            margin-top: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-status.inactive {
+            background-color: #f5f5f5;
+            color: #888;
+            border: 1px solid #ddd;
+        }
+
+        .project-status.inactive::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #aaa;
+            border-radius: 50%;
+        }
+
+        /* Contact */
+        .contact-link {
+            font-size: 1.2rem;
+            margin-right: 1.5rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Utilities */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--text-color);
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+        }
+
+        ::selection {
+            background: #000;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav ul {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .container {
+                padding: 6rem 4rem;
+            }
+        }
+
+        /* CTA Section Styles */
+        .cta-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 6rem;
+            padding: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            border: 2px solid var(--text-color);
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            border-bottom: 2px solid var(--text-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .social-icon {
+            margin-bottom: 0;
+            border: none;
+            position: relative;
+            color: var(--text-color);
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+            transition: fill 0.2s ease;
+        }
+
+        .social-icon:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            border: none;
+            background: none;
+            color: #000000;
+        }
+
+        /* Custom Tooltip */
+        .social-icon::after {
+            content: attr(aria-label);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            font-weight: 500;
+        }
+
+        .social-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        /* Freelance Projects Enhanced Styles */
+        .year-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .year-label {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .year-label::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .year-label::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 60px);
+            background: linear-gradient(180deg, var(--text-color) 0%, transparent 100%);
+        }
+
+        .freelance-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .freelance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .freelance-card {
+            border: 1px solid var(--border-color);
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .freelance-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--text-color);
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+
+        .freelance-card:hover {
+            box-shadow: 4px 4px 0px 0px var(--text-color);
+            transform: translateX(4px);
+        }
+
+        .freelance-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .freelance-title {
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .freelance-badge {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            background-color: var(--text-color);
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .freelance-client {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        .freelance-desc {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .freelance-tech {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .freelance-tech span {
+            background-color: #f5f5f5;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-inner">
+                <div class="logo-section">
+                    <a href="#" class="logo">Ahmad Syarifudin</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#work">Work</a></li>
+                    </ul>
+                    <a href="#contact" class="nav-contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <section id="hero">
+            <h1>
+                Software Engineer specializing<br>
+                in backend and IoT systems<span class="cursor"></span>
+            </h1>
+        </section>
+
+        <section id="about">
+            <h2>01. About</h2>
+            <p>Backend & IoT Software Engineer with <strong>5+ years of experience</strong> in building scalable SaaS
+                platforms using Go (Golang),
+                Laravel, and Docker. Skilled in real-time IoT data pipelines (MQTT/Redis), database design (PostgreSQL,
+                MySQL, InfluxDB), CI/CD automation (GitHub Actions), and Linux/Nginx deployment. Proven to improve
+                system reliability and accelerate application delivery for enterprise and government clients.</p>
+        </section>
+
+        <section id="skills">
+            <h2>02. Technical Skills</h2>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h3
+                        style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; opacity: 0.7;">
+                        Backend Development</h3>
+                    <ul class="skills-list">
+                        <li>Go (Golang)</li>
+                        <li>PHP (Laravel)</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3
+                        style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; opacity: 0.7;">
+                        Frontend Development</h3>
+                    <ul class="skills-list">
+                        <li>VueJS / Nuxt</li>
+                        <li>jQuery</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3
+                        style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; opacity: 0.7;">
+                        Embedded & Mobile</h3>
+                    <ul class="skills-list">
+                        <li>C/C++</li>
+                        <li>Arduino</li>
+                        <li>ESP32/ESP8266</li>
+                        <li>RaspberryPi</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3
+                        style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; opacity: 0.7;">
+                        Miscellaneous</h3>
+                    <ul class="skills-list">
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>SSH / Linux</li>
+                        <li>MQTT</li>
+                        <li>Grafana</li>
+                        <li>MySQL / PostgreSQL</li>
+                        <li>InfluxDB / Redis</li>
+                        <li>Github CI/CD</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>03. Work Experience</h2>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <article>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700;">Aptavis (PT Digital Apta Media)</h3>
+                        <span style="font-size: 0.9rem; opacity: 0.7;">March 2021 - Current</span>
+                    </div>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem; font-weight: 500;">Software Engineer</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; font-size: 0.9rem; opacity: 0.9; max-width: 700px;">
+                        <li style="margin-bottom: 0.25rem;">Developed AI Chat with RAG (Retrieval-Augmented Generation)
+                            using Python, Qdrant vector database, and Redis for hospitality knowledge base.</li>
+                        <li style="margin-bottom: 0.25rem;">Conducted extensive research on IoT to support feature
+                            sustainability.</li>
+                        <li style="margin-bottom: 0.25rem;">Joined new team for product development and AI features.
+                        </li>
+                        <li style="margin-bottom: 0.25rem;">Initiated a new product project, managing Frontend, Backend,
+                            and tech stack.</li>
+                        <li style="margin-bottom: 0.25rem;">Responsible for application structure, database design, and
+                            performance.</li>
+                        <li style="margin-bottom: 0.25rem;">Problem-solving: Analyzed issues, created tool prototypes,
+                            and successfully implemented them at client sites.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700;">PT Cosa Indonesia</h3>
+                        <span style="font-size: 0.9rem; opacity: 0.7;">April 2011 - March 2021</span>
+                    </div>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem; font-weight: 500;">Electrical Engineer &
+                        Warehouse Coordinator</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; font-size: 0.9rem; opacity: 0.9; max-width: 700px;">
+                        <li style="margin-bottom: 0.25rem;">Managed incoming/outgoing stock and coordinated team tasks
+                            for efficient workflow.</li>
+                        <li style="margin-bottom: 0.25rem;">Undertook task lists personally to ensure timely completion.
+                        </li>
+                        <li style="margin-bottom: 0.25rem;">Analyzed problems, read schematics, repaired, and soldered
+                            components.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="work">
+            <h2>04. Projects</h2>
+
+            <!-- Professional Work -->
+            <h3
+                style="font-size: 1.2rem; margin-bottom: 1.5rem; margin-top: 1rem; border-left: 3px solid var(--text-color); padding-left: 1rem;">
+                Professional Work</h3>
+            <div class="projects-grid" style="margin-bottom: 4rem;">
+                <!-- AI Chat RAG Hospitality -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">AI Chat RAG for Hospitality</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2025</span>
+                    </div>
+                    <p class="project-desc">Intelligent chatbot with RAG (Retrieval-Augmented Generation) for
+                        hospitality knowledge base and customer support.</p>
+                    <span class="project-tech">Python / Qdrant / Redis</span>
+                </article>
+
+                <!-- IoT Platform Hospitality -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">IoT Hospitality Platform</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2021</span>
+                    </div>
+                    <p class="project-desc">Full-stack IoT platform integrating real-time data and 3rd party APIs.</p>
+                    <span class="project-tech">Go / VueJs / MQTT / InfluxDB</span>
+                </article>
+            </div>
+
+            <!-- Freelance Projects -->
+            <h3
+                style="font-size: 1.2rem; margin-bottom: 2rem; border-left: 3px solid var(--text-color); padding-left: 1rem;">
+                Freelance Projects</h3>
+
+            <div style="margin-bottom: 4rem;">
+                <!-- 2025 -->
+                <div class="year-group">
+                    <div class="year-label">2025</div>
+                    <div class="freelance-grid">
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Surat Pemblokiran Kendaraan
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Polda & Biro Jasa Medan</span>
+                            <p class="freelance-desc">Vehicle document blocking system for police and service bureaus.
+                            </p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>jQuery</span>
+                                <span>MySQL</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="year-group">
+                    <div class="year-label">2024</div>
+                    <div class="freelance-grid">
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Internal Admin System
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Polda Metro Jaya</span>
+                            <p class="freelance-desc">Internal administration for team management and documentation.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>jQuery</span>
+                                <span>MySQL</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Running Text Controller
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">PT KAI</span>
+                            <p class="freelance-desc">Custom hardware controller with PCB design for railway displays.
+                            </p>
+                            <div class="freelance-tech">
+                                <span>Arduino</span>
+                                <span>ESP32</span>
+                                <span>PCB Design</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Multi Sensor Monitoring
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">PT Digital Apta Media</span>
+                            <p class="freelance-desc">Real-time IoT monitoring system with multiple sensors.</p>
+                            <div class="freelance-tech">
+                                <span>Arduino</span>
+                                <span>ESP32</span>
+                                <span>InfluxDB</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Internal Admin System
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Polda Cikarang</span>
+                            <p class="freelance-desc">Internal administration and workflow management.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>jQuery</span>
+                                <span>MySQL</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Waybill Application
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Polda Sumatera Utara</span>
+                            <p class="freelance-desc">Traffic corps waybill system with cloud server deployment.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>MySQL</span>
+                                <span>Nginx</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="year-group">
+                    <div class="year-label">2023</div>
+                    <div class="freelance-grid">
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Warehouse Inventory
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">PT Cosa Indonesia</span>
+                            <p class="freelance-desc">Complete inventory management system for warehouse operations.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>jQuery</span>
+                                <span>MySQL</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Smart Water Meter
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">Custom Project</span>
+                            <p class="freelance-desc">Custom hardware/firmware for smart metering with LoRa
+                                connectivity.</p>
+                            <div class="freelance-tech">
+                                <span>ESP32</span>
+                                <span>LoRa</span>
+                                <span>PCB Design</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Water Meter OCR GSM
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">Custom Project</span>
+                            <p class="freelance-desc">Smart meter with camera module and GSM connectivity for remote
+                                reading.</p>
+                            <div class="freelance-tech">
+                                <span>ESP32</span>
+                                <span>Camera</span>
+                                <span>GSM</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Electricity Energy Meter
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">Custom Project</span>
+                            <p class="freelance-desc">Real-time energy consumption monitoring device.</p>
+                            <div class="freelance-tech">
+                                <span>ESP8266</span>
+                                <span>Arduino</span>
+                                <span>Sensors</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="year-group">
+                    <div class="year-label">2022</div>
+                    <div class="freelance-grid">
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Queuing System
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Samsat Jawa Timur</span>
+                            <p class="freelance-desc">Public service queuing system deployed on VPS infrastructure.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>MySQL</span>
+                                <span>Nginx</span>
+                            </div>
+                        </article>
+
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Index Kepuasan Masyarakat
+                                <span class="freelance-badge">Web App</span>
+                            </span>
+                            <span class="freelance-client">Polres Bontang</span>
+                            <p class="freelance-desc">Community satisfaction index application with analytics.</p>
+                            <div class="freelance-tech">
+                                <span>Laravel</span>
+                                <span>MySQL</span>
+                                <span>SSL</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- 2019 -->
+                <div class="year-group">
+                    <div class="year-label">2019</div>
+                    <div class="freelance-grid">
+                        <article class="freelance-card">
+                            <span class="freelance-title">
+                                Voice Alert Device
+                                <span class="freelance-badge">IoT</span>
+                            </span>
+                            <span class="freelance-client">Custom Project</span>
+                            <p class="freelance-desc">Custom hardware voice alert system with sensor integration.</p>
+                            <div class="freelance-tech">
+                                <span>ESP8266</span>
+                                <span>Arduino</span>
+                                <span>Sensors</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Projects -->
+            <h3
+                style="font-size: 1.2rem; margin-bottom: 1.5rem; border-left: 3px solid var(--text-color); padding-left: 1rem;">
+                Personal Projects</h3>
+            <div class="projects-grid">
+                <!-- Iuran.org -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Iuran.org</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2024</span>
+                    </div>
+                    <p class="project-desc">Reliable SaaS platform with full system design, DevOps, and microservices
+                        architecture.</p>
+                    <span class="project-tech">Golang / NuxtJs / DevOps / CI/CD</span>
+                </article>
+
+                <!-- dicoba.in -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">dicoba.in</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2024</span>
+                    </div>
+                    <p class="project-desc">AI-powered virtual outfit trial platform. Documentation and local env setup.
+                    </p>
+                    <span class="project-tech">Python / Laravel / NuxtJs / AI</span>
+                    <span class="project-status inactive">Inactive</span>
+                </article>
+
+                <!-- Mikrotik User Generator -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Mikrotik User Generator</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2021</span>
+                    </div>
+                    <p class="project-desc">Network user management and payment gateway integration.</p>
+                    <span class="project-tech">Laravel / VueJs / PostgreSQL</span>
+                    <span class="project-status inactive">Inactive</span>
+                </article>
+
+                <!-- Access Control RFID -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Access Control RFID</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2018</span>
+                    </div>
+                    <p class="project-desc">Security access control system with custom PCB.</p>
+                    <span class="project-tech">Laravel / VueJs / PCB Design</span>
+                    <span class="project-status inactive">Inactive</span>
+                </article>
+
+                <!-- Touchless Water Tap -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Touchless Water Tap</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">2020</span>
+                    </div>
+                    <p class="project-desc">Automated hygiene solution during COVID-19.</p>
+                    <span class="project-tech">ATMega328 / Sensors</span>
+                    <span class="project-status inactive">Inactive</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>05. Education</h2>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">
+                    <div>
+                        <h3 style="font-size: 1rem; font-weight: 700;">University Widyatama (Bandung)</h3>
+                        <p style="font-size: 0.9rem;">Bachelor of Informatics Engineering</p>
+                    </div>
+                    <span style="font-size: 0.85rem; text-align: right;">Nov 2015 - May 2020</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">
+                    <div>
+                        <h3 style="font-size: 1rem; font-weight: 700;">SMK Negeri 1 (Sumedang)</h3>
+                        <p style="font-size: 0.9rem;">Electrical Engineering</p>
+                    </div>
+                    <span style="font-size: 0.85rem; text-align: right;">Feb 2008 - May 2011</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta-section">
+            <h2 class="cta-title">Get In Touch</h2>
+            <p class="cta-text">
+                I’m currently open for freelance projects and new opportunities. Whether you have a question or just
+                want to say hi, I’ll try my best to get back to you!
+            </p>
+
+            <a href="mailto:a.syarifudin@windowslive.com" class="cta-button">Say Hello</a>
+
+            <div class="social-links">
+                <a href="mailto:a.syarifudin@windowslive.com" class="social-icon" title="Email" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/Asyasyarif" class="social-icon" title="GitHub" aria-label="GitHub"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/asyarif" class="social-icon" title="LinkedIn" aria-label="LinkedIn"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+
+            </div>
+        </section>
+
+        <footer
+            style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; opacity: 0.5;">
+            &copy; 2025 Ahmad Syarifudin.
+        </footer>
+    </div>
+</body>
+
+</html>
